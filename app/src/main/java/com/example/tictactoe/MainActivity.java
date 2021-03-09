@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    // Variables to keep track of game state
     public int turns = 0;
     public int score1 = 0;
     public int score2 = 0;
@@ -20,12 +21,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Initialize game board to empty
         int[] squares = {0, 0, 0, 0, 0, 0, 0, 0, 0};
 
+        // Top left square
         final Button top1 = findViewById(R.id.top1);
         top1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 TextView header = findViewById(R.id.textView);
+                // Check if square has been clicked yet or if game is over
                 if (!win && squares[0] == 0) {
                     if (player == 1) {
                         squares[0] = player;
@@ -34,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
                         squares[0] = player;
                         top1.setText("O");
                     }
+                    // Checks if a player won
                     if (player == squares[1] && player == squares[2]) {
                         win = true;
                     } else if (player == squares[3] && player == squares[6]) {
@@ -41,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
                     } else if (player == squares[4] && player == squares[8]) {
                         win = true;
                     }
+                    // Displays win message and updates player's scores
                     if (win) {
                         String message = "Player " + player + " Wins!";
                         header.setText(message);
@@ -54,11 +60,14 @@ public class MainActivity extends AppCompatActivity {
                             score.setText(Integer.toString(score2));
                         }
                     }
+                    // Increments turn
                     turns++;
+                    // Checks if game is a tie
                     if (!win && turns == 9) {
                         String message = "Draw Game!";
                         header.setText(message);
                     }
+                    // Switches player
                     if (player == 1) {
                         player = 2;
                     } else {
@@ -68,10 +77,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Top middle square
         final Button top2 =  findViewById(R.id.top2);
         top2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 TextView header = findViewById(R.id.textView);
+                // Check if square has been clicked yet or if game is over
                 if (!win && squares[1] == 0) {
                     if (player == 1) {
                         squares[1] = player;
@@ -80,11 +91,13 @@ public class MainActivity extends AppCompatActivity {
                         squares[1] = player;
                         top2.setText("O");
                     }
+                    // Checks if a player won
                     if (player == squares[0] && player == squares[2]) {
                         win = true;
                     } else if (player == squares[4] && player == squares[7]) {
                         win = true;
                     }
+                    // Displays win message and updates player's scores
                     if (win) {
                         String message = "Player " + player + " Wins!";
                         header.setText(message);
@@ -98,11 +111,14 @@ public class MainActivity extends AppCompatActivity {
                             score.setText(Integer.toString(score2));
                         }
                     }
+                    // Increments turn
                     turns++;
+                    // Checks if game is a tie
                     if (!win && turns == 9) {
                         String message = "Draw Game!";
                         header.setText(message);
                     }
+                    // Switches player
                     if (player == 1) {
                         player = 2;
                     } else {
@@ -112,10 +128,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Top right square
         final Button top3 =  findViewById(R.id.top3);
         top3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 TextView header = findViewById(R.id.textView);
+                // Check if square has been clicked yet or if game is over
                 if (!win && squares[2] == 0) {
                     if (player == 1) {
                         squares[2] = player;
@@ -124,6 +142,7 @@ public class MainActivity extends AppCompatActivity {
                         squares[2] = player;
                         top3.setText("O");
                     }
+                    // Checks if a player won
                     if (player == squares[0] && player == squares[1]) {
                         win = true;
                     } else if (player == squares[5] && player == squares[8]) {
@@ -131,6 +150,7 @@ public class MainActivity extends AppCompatActivity {
                     } else if (player == squares[4] && player == squares[6]) {
                         win = true;
                     }
+                    // Displays win message and updates player's scores
                     if (win) {
                         String message = "Player " + player + " Wins!";
                         header.setText(message);
@@ -144,11 +164,14 @@ public class MainActivity extends AppCompatActivity {
                             score.setText(Integer.toString(score2));
                         }
                     }
+                    // Increments turn
                     turns++;
+                    // Checks if game is a tie
                     if (!win && turns == 9) {
                         String message = "Draw Game!";
                         header.setText(message);
                     }
+                    // Switches player
                     if (player == 1) {
                         player = 2;
                     } else {
@@ -158,10 +181,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Middle left square
         final Button mid1 =  findViewById(R.id.mid1);
         mid1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 TextView header = findViewById(R.id.textView);
+                // Check if square has been clicked yet or if game is over
                 if (!win && squares[3] == 0) {
                     if (player == 1) {
                         squares[3] = player;
@@ -170,11 +195,13 @@ public class MainActivity extends AppCompatActivity {
                         squares[3] = player;
                         mid1.setText("O");
                     }
+                    // Checks if a player won
                     if (player == squares[4] && player == squares[5]) {
                         win = true;
                     } else if (player == squares[0] && player == squares[6]) {
                         win = true;
                     }
+                    // Displays win message and updates player's scores
                     if (win) {
                         String message = "Player " + player + " Wins!";
                         header.setText(message);
@@ -188,11 +215,14 @@ public class MainActivity extends AppCompatActivity {
                             score.setText(Integer.toString(score2));
                         }
                     }
+                    // Increments turn
                     turns++;
+                    // Checks if game is a tie
                     if (!win && turns == 9) {
                         String message = "Draw Game!";
                         header.setText(message);
                     }
+                    // Switches player
                     if (player == 1) {
                         player = 2;
                     } else {
@@ -202,10 +232,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Center square
         final Button mid2 =  findViewById(R.id.mid2);
         mid2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 TextView header = findViewById(R.id.textView);
+                // Check if square has been clicked yet or if game is over
                 if (!win && squares[4] == 0) {
                     if (player == 1) {
                         squares[4] = player;
@@ -214,6 +246,7 @@ public class MainActivity extends AppCompatActivity {
                         squares[4] = player;
                         mid2.setText("O");
                     }
+                    // Checks if a player won
                     if (player == squares[3] && player == squares[5]) {
                         win = true;
                     } else if (player == squares[1] && player == squares[7]) {
@@ -223,6 +256,7 @@ public class MainActivity extends AppCompatActivity {
                     } else if (player == squares[2] && player == squares[6]) {
                         win = true;
                     }
+                    // Displays win message and updates player's scores
                     if (win) {
                         String message = "Player " + player + " Wins!";
                         header.setText(message);
@@ -236,11 +270,14 @@ public class MainActivity extends AppCompatActivity {
                             score.setText(Integer.toString(score2));
                         }
                     }
+                    // Increments turn
                     turns++;
+                    // Checks if game is a tie
                     if (!win && turns == 9) {
                         String message = "Draw Game!";
                         header.setText(message);
                     }
+                    // Switches player
                     if (player == 1) {
                         player = 2;
                     } else {
@@ -250,10 +287,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Middle right square
         final Button mid3 =  findViewById(R.id.mid3);
         mid3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 TextView header = findViewById(R.id.textView);
+                // Check if square has been clicked yet or if game is over
                 if (!win && squares[5] == 0) {
                     if (player == 1) {
                         squares[5] = player;
@@ -262,11 +301,13 @@ public class MainActivity extends AppCompatActivity {
                         squares[5] = player;
                         mid3.setText("O");
                     }
+                    // Checks if a player won
                     if (player == squares[3] && player == squares[4]) {
                         win = true;
                     } else if (player == squares[2] && player == squares[8]) {
                         win = true;
                     }
+                    // Displays win message and updates player's scores
                     if (win) {
                         String message = "Player " + player + " Wins!";
                         header.setText(message);
@@ -280,11 +321,14 @@ public class MainActivity extends AppCompatActivity {
                             score.setText(Integer.toString(score2));
                         }
                     }
+                    // Increments turn
                     turns++;
+                    // Checks if game is a tie
                     if (!win && turns == 9) {
                         String message = "Draw Game!";
                         header.setText(message);
                     }
+                    // Switches player
                     if (player == 1) {
                         player = 2;
                     } else {
@@ -294,10 +338,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Bottom left square
         final Button bot1 =  findViewById(R.id.bot1);
         bot1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 TextView header = findViewById(R.id.textView);
+                // Check if square has been clicked yet or if game is over
                 if (!win && squares[6] == 0) {
                     if (player == 1) {
                         squares[6] = player;
@@ -306,6 +352,7 @@ public class MainActivity extends AppCompatActivity {
                         squares[6] = player;
                         bot1.setText("O");
                     }
+                    // Checks if a player won
                     if (player == squares[7] && player == squares[8]) {
                         win = true;
                     } else if (player == squares[3] && player == squares[0]) {
@@ -313,6 +360,7 @@ public class MainActivity extends AppCompatActivity {
                     } else if (player == squares[4] && player == squares[2]) {
                         win = true;
                     }
+                    // Displays win message and updates player's scores
                     if (win) {
                         String message = "Player " + player + " Wins!";
                         header.setText(message);
@@ -326,11 +374,14 @@ public class MainActivity extends AppCompatActivity {
                             score.setText(Integer.toString(score2));
                         }
                     }
+                    // Increments turn
                     turns++;
+                    // Checks if game is a tie
                     if (!win && turns == 9) {
                         String message = "Draw Game!";
                         header.setText(message);
                     }
+                    // Switches player
                     if (player == 1) {
                         player = 2;
                     } else {
@@ -340,10 +391,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Bottom middle square
         final Button bot2 =  findViewById(R.id.bot2);
         bot2.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 TextView header = findViewById(R.id.textView);
+                // Check if square has been clicked yet or if game is over
                 if (!win && squares[7] == 0) {
                     if (player == 1) {
                         squares[7] = player;
@@ -352,11 +405,13 @@ public class MainActivity extends AppCompatActivity {
                         squares[7] = player;
                         bot2.setText("O");
                     }
+                    // Checks if a player won
                     if (player == squares[6] && player == squares[8]) {
                         win = true;
                     } else if (player == squares[4] && player == squares[1]) {
                         win = true;
                     }
+                    // Displays win message and updates player's scores
                     if (win) {
                         String message = "Player " + player + " Wins!";
                         header.setText(message);
@@ -370,11 +425,14 @@ public class MainActivity extends AppCompatActivity {
                             score.setText(Integer.toString(score2));
                         }
                     }
+                    // Increments turn
                     turns++;
+                    // Checks if game is a tie
                     if (!win && turns == 9) {
                         String message = "Draw Game!";
                         header.setText(message);
                     }
+                    // Switches player
                     if (player == 1) {
                         player = 2;
                     } else {
@@ -384,10 +442,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Bottom right square
         final Button bot3 =  findViewById(R.id.bot3);
         bot3.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 TextView header = findViewById(R.id.textView);
+                // Check if square has been clicked yet or if game is over
                 if (!win && squares[8] == 0) {
                     if (player == 1) {
                         squares[8] = player;
@@ -396,6 +456,7 @@ public class MainActivity extends AppCompatActivity {
                         squares[8] = player;
                         bot3.setText("O");
                     }
+                    // Checks if a player won
                     if (player == squares[7] && player == squares[6]) {
                         win = true;
                     } else if (player == squares[5] && player == squares[2]) {
@@ -403,6 +464,7 @@ public class MainActivity extends AppCompatActivity {
                     } else if (player == squares[4] && player == squares[0]) {
                         win = true;
                     }
+                    // Displays win message and updates player's scores
                     if (win) {
                         String message = "Player " + player + " Wins!";
                         header.setText(message);
@@ -416,11 +478,14 @@ public class MainActivity extends AppCompatActivity {
                             score.setText(Integer.toString(score2));
                         }
                     }
+                    // Increments turn
                     turns++;
+                    // Checks if game is a tie
                     if (!win && turns == 9) {
                         String message = "Draw Game!";
                         header.setText(message);
                     }
+                    // Switches player
                     if (player == 1) {
                         player = 2;
                     } else {
@@ -430,6 +495,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Resets the game board to empty, does not change player's scores
         final Button reset =  findViewById(R.id.reset);
         reset.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
